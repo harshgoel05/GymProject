@@ -143,10 +143,16 @@ $('#populate-btn').on('click', function (event) {
 					alert('User does not exists!');
 				} else {
 					$('#email').val(r.email);
-					$('#membership').val(r.type);
+					if (r.type == 'U1') {
+						$('#membership').val('General Membership');
+					} else if (r.type == 'U2') {
+						$('#membership').val('Trainer - 36 session');
+					} else if (r.type == 'U3') {
+						$('#membership').val('Daily Training');
+					}
 					$('#phone').val(r.phone);
 					//Image apply left
-					$('#image').val(r.image);
+					$('#image').attr('src', `data:image/png;base64,${r.pp}`);
 				}
 			},
 			error: function (xhr, status) {
