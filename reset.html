@@ -1,160 +1,197 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Gym</title>
 
-    <title>Collapsible sidebar using Bootstrap 4</title>
+		<!-- Bootstrap CSS CDN -->
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+			integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+			crossorigin="anonymous"
+		/>
+		<!-- Our Custom CSS -->
+		<link rel="stylesheet" href="style3.css" />
+		<!-- Scrollbar Custom CSS -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css"
+		/>
 
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
-        crossorigin="anonymous">
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="style3.css">
-    <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+		<!-- Font Awesome JS -->
+		<script
+			defer
+			src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+			integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+			crossorigin="anonymous"
+		></script>
+		<script
+			defer
+			src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+			integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+			crossorigin="anonymous"
+		></script>
+	</head>
 
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
-        crossorigin="anonymous"></script>
+	<body>
+		<div class="wrapper">
+			<!-- Sidebar  -->
+			<nav id="sidebar">
+				<div id="dismiss">
+					<i class="fas fa-arrow-left mb-4"></i>
+				</div>
 
-</head>
+				<ul class="list-unstyled components mt-4">
+					<li id="menu-add-employee">
+						<a href="employee.html">
+							<h3>
+								<i class="fas fa-users"></i> ADD
+								<br />
+								<span class="lower">
+									EMPLOYEE
+								</span>
+							</h3>
+						</a>
+					</li>
+					<li>
+						<hr />
+						<a href="client.html">
+							<h3>
+								<i class="fas fa-user-plus"></i> ADD
+								<br />
+								<span class="lower">
+									CLIENT
+								</span>
+							</h3>
+						</a>
+					</li>
+					<li>
+						<hr />
+						<a href="trainer.html">
+							<h3>
+								<i class="fas fa-dumbbell"></i> TRAINER
+								<br />
+								<span class="lower">
+									CHECK
+								</span>
+							</h3>
+						</a>
+					</li>
+					<li>
+						<hr />
+						<a href="reset.html">
+							<h3>
+								<i class="fas fa-unlock-alt"></i> RESET
+								<br />
+								<span class="lower">
+									PASSWORD
+								</span>
+							</h3>
+						</a>
+					</li>
+					<li id="menu-adjust-time">
+						<hr />
+						<a href="time.html">
+							<h3>
+								<i class="fas fa-dumbbell"></i> ADJUST
+								<br />
+								<span class="lower">
+									TIME
+								</span>
+							</h3>
+						</a>
+					</li>
+				</ul>
+			</nav>
 
-<body>
+			<!-- Page Content  -->
+			<div id="content">
+				<div class="container-fluid">
+					<button type="button" id="sidebarCollapse" class="btn btn-info">
+						<i class="fas fa-align-justify"></i>
+					</button>
+				</div>
 
-    <div class="wrapper">
-        <!-- Sidebar  -->
-        <nav id="sidebar">
-            <div id="dismiss">
-                <i class="fas fa-arrow-left mb-4"></i>
-            </div>
+				<div class="card mx-auto" style="width: 38rem; height: 30rem;">
+					<div class="card-body">
+						<div class="container">
+							<h5 class="card-title text-center">Reset Password</h5>
+							<br />
+							<form class="form">
+								<div class="form-group">
+									<label for="username">Username</label>
+									<input
+										type="email"
+										class="form-control"
+										id="username"
+										aria-describedby="emailHelp"
+										placeholder="Username@123"
+										style="background-color: rgb(223, 223, 223);"
+									/>
+								</div>
+								<div class="form-group">
+									<label for="pass">Password</label>
+									<input
+										type="password"
+										class="form-control"
+										id="pass"
+										placeholder="*********"
+										style="background-color: rgb(223, 223, 223);"
+									/>
+								</div>
+								<div class="text-center mt-4">
+									<button type="submit" class="btn btn1 btn-primary" id="reset-btn"><b>SUBMIT</b></button><br /><br />
+									<!-- <a href="#" class="text-center"><u>Populate</u></a> -->
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
+		<div class="overlay"></div>
 
-            <ul class="list-unstyled components mt-4">
-                <li>
-                    <a href="employee.html">
-                        <h3>
-                            <i class="fas fa-users"></i> ADD
-                            <br>
-                            <span class="lower">
-                                EMPLOYEE
-                            </span>
-                        </h3>
-                    </a>
-                </li>
-                <li>
-                    <hr>
-                    <a href="client.html">
-                        <h3>
-                            <i class="fas fa-user-plus"></i> ADD
-                            <br>
-                            <span class="lower">
-                                CLIENT
-                            </span>
-                        </h3>
-                    </a>
-                </li>
-                <li>
-                    <hr>
-                    <a href="trainer.html">
-                        <h3>
-                            <i class="fas fa-dumbbell"></i> TRAINER
-                            <br>
-                            <span class="lower">
-                                CHECK
-                            </span>
-                        </h3>
-                    </a>
-                </li>
-                <li>
-                    <hr>
-                    <a href="reset.html">
-                        <h3>
-                            <i class="fas fa-unlock-alt"></i> RESET
-                            <br>
-                            <span class="lower">
-                                PASSWORD
-                            </span>
-                        </h3>
-                    </a>
-                </li>
-            </ul>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- Popper.JS -->
+		<!-- Popper.JS -->
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+			integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+			crossorigin="anonymous"
+		></script>
+		<!-- Bootstrap JS -->
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+			integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+			crossorigin="anonymous"
+		></script>
+		<!-- jQuery Custom Scroller CDN -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-        </nav>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$('#sidebar').mCustomScrollbar({
+					theme: 'minimal',
+				});
 
-        <!-- Page Content  -->
-        <div id="content">
+				$('#dismiss, .overlay').on('click', function () {
+					$('#sidebar').removeClass('active');
+					$('.overlay').removeClass('active');
+				});
 
-
-            <div class="container-fluid">
-
-                <button type="button" id="sidebarCollapse" class="btn btn-info">
-                    <i class="fas fa-align-justify"></i>
-                </button>
-
-            </div>
-
-            <div class="card mx-auto" style="width: 38rem; height: 30rem;">
-                <div class="card-body">
-
-                    <div class="container">
-                        <h5 class="card-title text-center">Reset Password</h5>
-                        <br>
-                        <form class="form">
-                            <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Username@123" style="background-color: rgb(223, 223, 223);">
-                            </div>
-                            <div class="form-group">
-                                <label for="pass">Password</label>
-                                <input type="password" class="form-control" id="pass" placeholder="*********" style="background-color: rgb(223, 223, 223);">
-                            </div>
-                            <div class="text-center mt-4">
-                                <button type="submit" class="btn btn1 btn-primary" id="reset-btn"><b>SUBMIT</b></button><br><br>
-                                <!-- <a href="#" class="text-center"><u>Populate</u></a> -->
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="overlay"></div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- Popper.JS -->
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-        crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-        crossorigin="anonymous"></script>
-    <!-- jQuery Custom Scroller CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#sidebar").mCustomScrollbar({
-                theme: "minimal"
-            });
-
-            $('#dismiss, .overlay').on('click', function () {
-                $('#sidebar').removeClass('active');
-                $('.overlay').removeClass('active');
-            });
-
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').addClass('active');
-                $('.overlay').addClass('active');
-                $('.collapse.in').toggleClass('in');
-                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            });
-        });
-    </script>
-    <script src="./js/reset.js"></script>
-</body>
-
+				$('#sidebarCollapse').on('click', function () {
+					$('#sidebar').addClass('active');
+					$('.overlay').addClass('active');
+					$('.collapse.in').toggleClass('in');
+					$('a[aria-expanded=true]').attr('aria-expanded', 'false');
+				});
+			});
+		</script>
+		<script src="./js/reset.js"></script>
+	</body>
 </html>

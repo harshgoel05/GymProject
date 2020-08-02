@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Collapsible sidebar using Bootstrap 4</title>
+    <title>Gym</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -30,57 +30,67 @@
                 <i class="fas fa-arrow-left mb-4"></i>
             </div>
 
-
             <ul class="list-unstyled components mt-4">
-                <li>
+                <li id="menu-add-employee">
                     <a href="employee.html">
                         <h3>
                             <i class="fas fa-users"></i> ADD
-                            <br>
+                            <br />
                             <span class="lower">
-                            EMPLOYEE
-                        </span>
+                                EMPLOYEE
+                            </span>
                         </h3>
                     </a>
                 </li>
                 <li>
-                    <hr>
+                    <hr />
                     <a href="client.html">
                         <h3>
                             <i class="fas fa-user-plus"></i> ADD
-                            <br>
+                            <br />
                             <span class="lower">
-                            CLIENT
-                        </span>
+                                CLIENT
+                            </span>
                         </h3>
                     </a>
                 </li>
                 <li>
-                    <hr>
+                    <hr />
                     <a href="trainer.html">
                         <h3>
                             <i class="fas fa-dumbbell"></i> TRAINER
-                            <br>
+                            <br />
                             <span class="lower">
-                        CHECK
-                    </span>
+                                CHECK
+                            </span>
                         </h3>
                     </a>
                 </li>
                 <li>
-                    <hr>
+                    <hr />
                     <a href="reset.html">
                         <h3>
                             <i class="fas fa-unlock-alt"></i> RESET
-                            <br>
+                            <br />
                             <span class="lower">
-                        PASSWORD
-                    </span>
+                                PASSWORD
+                            </span>
+                        </h3>
+                    </a>
+                </li>
+                <li id="menu-adjust-time">
+                    <hr />
+                    <a href="time.html">
+                        <h3>
+                            <i class="fas fa-dumbbell"></i> ADJUST
+                            <br />
+                            <span class="lower">
+                                TIME
+                            </span>
                         </h3>
                     </a>
                 </li>
             </ul>
-
         </nav>
 
         <!-- Page Content  -->
@@ -960,6 +970,7 @@
 
 })
     </script>
+    <script src="./js/time.js"></script>
 </body>
 
 </html>

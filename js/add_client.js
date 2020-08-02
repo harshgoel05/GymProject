@@ -1,3 +1,15 @@
+if (localStorage.getItem('role')) {
+	if (localStorage.getItem('role') == 'Admin') {
+	} else if (localStorage.getItem('role') == 'Frontdesk') {
+		$('#menu-add-employee').css('display', 'none');
+		$('#menu-adjust-time').css('display', 'none');
+	} else {
+		location.replace('http://portal.mbbgroup.in/login.html');
+	}
+} else {
+	location.replace('http://portal.mbbgroup.in/login.html');
+}
+
 $('#add-client-btn').on('click', function (event) {
 	event.preventDefault();
 
@@ -5,9 +17,17 @@ $('#add-client-btn').on('click', function (event) {
 	var email = $('#email').val();
 	var phone = $('#phone').val();
 	var membership = $('#membership').val();
-	console.log(username, email, phone, membership);
-	var url = 'http://gymworkout.pe.hu/api/api8.php?user=' + username;
-	if (username && email && phone && membership) {
+	var startdate = $('#start-date').val();
+	var enddate = $('#end-date').val();
+	var tstartdate = $('#t-start-date').val();
+	var tenddate = $('#t-end-date').val();
+	// var now = new Date();
+	// const tenddate_formatted = new Date(tendate);
+	// var check = now > tenddate_formatted;
+	// console.log(check);
+	console.log(username, email, phone, membership, startdate, endate, tstartdate, tenddate);
+	var url = 'https://app.mbvgroup.in/websiteapi/api8.php?user=' + username;
+	if (username && email && phone && membership && startdate && enddate && tstartdate && tenddate) {
 		$.ajax({
 			url: url,
 			type: 'GET',
@@ -28,14 +48,22 @@ $('#add-client-btn').on('click', function (event) {
 				if ((r.status = 0)) {
 					$.ajax({
 						url:
-							'http://gymworkout.pe.hu/api/api9.php?user=' +
+							'https://app.mbvgroup.in/websiteapi/api9.php?user=' +
 							username +
 							'&email=' +
 							email +
 							'&ph=' +
 							phone +
 							'&type=' +
-							membership,
+							membership +
+							'&startdate=' +
+							startdate +
+							'&enddate=' +
+							enddate +
+							'&tstartdate=' +
+							tstartdate +
+							'&tenddate=' +
+							tenddate,
 						type: 'GET',
 						crossDomain: true,
 						headers: {
@@ -64,14 +92,22 @@ $('#add-client-btn').on('click', function (event) {
 				} else {
 					$.ajax({
 						url:
-							'http://gymworkout.pe.hu/api/api5.php?user=' +
+							'https://app.mbvgroup.in/websiteapi/api10.php?user=' +
 							username +
 							'&email=' +
 							email +
 							'&ph=' +
 							phone +
 							'&type=' +
-							membership,
+							membership +
+							'&startdate=' +
+							startdate +
+							'&enddate=' +
+							enddate +
+							'&tstartdate=' +
+							tstartdate +
+							'&tenddate=' +
+							tenddate,
 						type: 'GET',
 						crossDomain: true,
 						headers: {
@@ -120,7 +156,7 @@ $('#populate-btn').on('click', function (event) {
 	event.preventDefault();
 
 	var username = $('#username').val();
-	var url = 'http://gymworkout.pe.hu/api/api7.php?user=' + username;
+	var url = 'https://app.mbvgroup.in/websiteapi/api7.php?user=' + username;
 	if (username) {
 		$.ajax({
 			url: url,
@@ -151,8 +187,17 @@ $('#populate-btn').on('click', function (event) {
 						$('#membership').val('Daily Training');
 					}
 					$('#phone').val(r.phone);
-					//Image apply left
-					$('#image').attr('src', `data:image/png;base64,${r.pp}`);
+					var start = new Date(r.startd);
+					var end = new Date(r.endd);
+					var tstart = new Date(r.tstart);
+					var tend = new Date(r.tend);
+					$('#start-date').val(start);
+					$('#end-date').val(end);
+					$('#t-start-date').val(tstart);
+					$('#t-end-date').val(tend);
+					//Image apply
+					var pp = r.pp.replace('\\', '');
+					$('#image').attr('src', `data:image/png;base64,${pp}`);
 				}
 			},
 			error: function (xhr, status) {
@@ -169,7 +214,7 @@ $('#reset-btn').on('click', function (event) {
 	event.preventDefault();
 
 	var username = $('#username').val();
-	var url = 'http://gymworkout.pe.hu/api/api11.php?user=' + username;
+	var url = 'https://app.mbvgroup.in/websiteapi/api11.php?user=' + username;
 	if (username) {
 		$.ajax({
 			url: url,

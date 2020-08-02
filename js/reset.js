@@ -3,7 +3,7 @@ $('#reset-btn').on('click', function (event) {
 
 	var username = $('#username').val();
 	var pass = $('#pass').val();
-	var url = 'http://gymworkout.pe.hu/api/api12.php?user=' + username + '&pass=' + pass;
+	var url = 'https://app.mbvgroup.in/websiteapi/api13.php?user=' + username + '&pass=' + pass;
 	if (username && pass) {
 		$.ajax({
 			url: url,
@@ -37,3 +37,14 @@ $('#reset-btn').on('click', function (event) {
 		alert('Please enter all details!');
 	}
 });
+if (localStorage.getItem('role')) {
+	if (localStorage.getItem('role') == 'Admin') {
+	} else if (localStorage.getItem('role') == 'Frontdesk') {
+		$('#menu-add-employee').css('display', 'none');
+		$('#menu-adjust-time').css('display', 'none');
+	} else {
+		location.replace('http://portal.mbbgroup.in/login.html');
+	}
+} else {
+	location.replace('http://portal.mbbgroup.in/login.html');
+}

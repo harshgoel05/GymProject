@@ -1,9 +1,8 @@
 $('#add-employee-btn').on('click', function (event) {
 	event.preventDefault();
-
 	var email = $('#email').val();
 	var pass = $('#pass').val();
-	var url = 'http://gymworkout.pe.hu/api/api1.php?user=' + email + '&pass=' + pass;
+	var url = 'https://app.mbvgroup.in/websiteapi/api1.php?user=' + email + '&pass=' + pass;
 	if (email && pass) {
 		$.ajax({
 			url: url,
@@ -23,7 +22,8 @@ $('#add-employee-btn').on('click', function (event) {
 				var r = JSON.parse(response);
 				console.log(r.status);
 				localStorage.setItem('status', r.status);
-				location.replace('http://gymworkout.pe.hu/web_portal/employee.html');
+				localStorage.setItem('role', r.role);
+				location.replace('http://portal.mbbgroup.in/client.html');
 			},
 			error: function (xhr, status) {
 				console.log('error', xhr, status);
@@ -34,3 +34,5 @@ $('#add-employee-btn').on('click', function (event) {
 		alert('Please enter all the details');
 	}
 });
+// FrontDesk => Add client, Trainer ( employee, time)
+// Admin => All menus
