@@ -1,3 +1,5 @@
+$('#role-people').html(localStorage.getItem('role'));
+
 $('#add-employee-btn').on('click', function (event) {
 	event.preventDefault();
 
@@ -6,7 +8,7 @@ $('#add-employee-btn').on('click', function (event) {
 	var role = $('#role').val();
 	var gym = $('#gym').val();
 	console.log(username, pass, role, gym);
-	var url = 'http://gymworkout.pe.hu/api/api3.php?user=' + username;
+	var url = 'https://app.mbvgroup.in/websiteapi/api3.php?user=' + username;
 	if (username && pass && role && gym) {
 		$.ajax({
 			url: url,
@@ -27,15 +29,7 @@ $('#add-employee-btn').on('click', function (event) {
 				console.log(r.status);
 				if ((r.status = 0)) {
 					$.ajax({
-						url:
-							'http://gymworkout.pe.hu/api/api4.php?user=' +
-							username +
-							'&pass=' +
-							pass +
-							'&rl=' +
-							role +
-							'&gym=' +
-							gym,
+						url: 'https://app.mbvgroup.in/websiteapi/api4.php?user=' + username + '&pass=' + pass + '&rl=' + role + '&gym=' + gym,
 						type: 'GET',
 						crossDomain: true,
 						headers: {
@@ -63,15 +57,7 @@ $('#add-employee-btn').on('click', function (event) {
 					});
 				} else {
 					$.ajax({
-						url:
-							'http://gymworkout.pe.hu/api/api5.php?user=' +
-							username +
-							'&pass=' +
-							pass +
-							'&rl=' +
-							role +
-							'&gym=' +
-							gym,
+						url: 'https://app.mbvgroup.in/websiteapi/api5.php?user=' + username + '&pass=' + pass + '&rl=' + role + '&gym=' + gym,
 						type: 'GET',
 						crossDomain: true,
 						headers: {
@@ -120,7 +106,7 @@ $('#populate-btn').on('click', function (event) {
 	event.preventDefault();
 
 	var username = $('#username').val();
-	var url = 'http://gymworkout.pe.hu/api/api6.php?user=' + username;
+	var url = 'https://app.mbvgroup.in/websiteapi/api6.php?user=' + username;
 	if (username) {
 		$.ajax({
 			url: url,
@@ -156,3 +142,16 @@ $('#populate-btn').on('click', function (event) {
 		alert('Please enter username to populate');
 	}
 });
+
+if (localStorage.getItem('role')) {
+	if (localStorage.getItem('role') == 'Admin') {
+	} else if (localStorage.getItem('role') == 'Frontdesk') {
+		$('#menu-add-employee').css('display', 'none');
+		$('#menu-adjust-time').css('display', 'none');
+		location.replace('http://portal.mbbgroup.in/client.html');
+	} else {
+		location.replace('http://portal.mbbgroup.in/login.html');
+	}
+} else {
+	location.replace('http://portal.mbbgroup.in/login.html');
+}
