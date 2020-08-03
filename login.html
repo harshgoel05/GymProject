@@ -1,100 +1,129 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>login</title>
 
-    <title>login</title>
+		<!-- Bootstrap CSS CDN -->
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+			integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+			crossorigin="anonymous"
+		/>
+		<!-- Our Custom CSS -->
+		<link rel="stylesheet" href="style3.css" />
+		<!-- Scrollbar Custom CSS -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css"
+		/>
 
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
-        crossorigin="anonymous">
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="style3.css">
-    <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+		<!-- Font Awesome JS -->
+		<script
+			defer
+			src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+			integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+			crossorigin="anonymous"
+		></script>
+		<script
+			defer
+			src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+			integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+			crossorigin="anonymous"
+		></script>
+	</head>
 
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
-        crossorigin="anonymous"></script>
+	<body>
+		<div class="wrapper">
+			<!-- Sidebar  -->
 
-</head>
+			<!-- Page Content  -->
+			<div id="content">
+				<div class="row">
+					<div class="col">
+						<div class="card mx-auto" style="width: 38rem; height: 38rem;">
+							<div class="card-body">
+								<div class="container">
+									<br /><br />
+									<h3 class="card-title text-center">L O G I N</h3>
+									<br /><br />
+									<form class="form">
+										<div class="form-group">
+											<label for="email"><b>Username</b></label>
+											<input
+												type="text"
+												class="form-control"
+												id="email"
+												aria-describedby="emailHelp"
+												placeholder="Username@123"
+												style="background-color: rgb(223, 223, 223);"
+											/>
+										</div>
+										<br />
+										<div class="form-group">
+											<label for="pass"><b>Password</b></label>
+											<input
+												type="password"
+												class="form-control"
+												id="pass"
+												placeholder="*********"
+												style="background-color: rgb(223, 223, 223);"
+											/>
+										</div>
+										<br />
+										<button class="btn btn1 btn-primary float-right" id="login-btn"><b>LOGIN</b></button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-<body>
+		<div class="overlay"></div>
 
-    <div class="wrapper">
-        <!-- Sidebar  -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- Popper.JS -->
+		<!-- Popper.JS -->
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+			integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+			crossorigin="anonymous"
+		></script>
+		<!-- Bootstrap JS -->
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+			integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+			crossorigin="anonymous"
+		></script>
+		<!-- jQuery Custom Scroller CDN -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script> -->
 
-        <!-- Page Content  -->
-        <div id="content">
+		<script type="text/javascript">
+			$(document).ready(function () {
+				// $('#sidebar').mCustomScrollbar({
+				// 	theme: 'minimal',
+				// });
 
-            <div class="row">
-                <div class="col">
-                    <div class="card mx-auto" style="width: 38rem; height: 38rem;">
-                        <div class="card-body">
+				$('#dismiss, .overlay').on('click', function () {
+					$('#sidebar').removeClass('active');
+					$('.overlay').removeClass('active');
+				});
 
-                            <div class="container">
-                                <br><br>
-                                <h3 class="card-title text-center">L O G I N</h3>
-                                <br><br>
-                                <form class="form">
-                                    <div class="form-group">
-                                        <label for="email"><b>Username</b></label>
-                                        <input type="text" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Username@123" style="background-color: rgb(223, 223, 223);">
-                                    </div>
-                                    <br>
-                                    <div class="form-group">
-                                        <label for="pass"><b>Password</b></label>
-                                        <input type="password" class="form-control" id="pass" placeholder="*********" style="background-color: rgb(223, 223, 223);">
-                                    </div>
-                                    <br>
-                                    <button type="submit" class="btn btn1 btn-primary float-right" id="login-btn"><b>LOGIN</b></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="overlay"></div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- Popper.JS -->
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-        crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-        crossorigin="anonymous"></script>
-    <!-- jQuery Custom Scroller CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#sidebar").mCustomScrollbar({
-                theme: "minimal"
-            });
-
-            $('#dismiss, .overlay').on('click', function () {
-                $('#sidebar').removeClass('active');
-                $('.overlay').removeClass('active');
-            });
-
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').addClass('active');
-                $('.overlay').addClass('active');
-                $('.collapse.in').toggleClass('in');
-                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            });
-        });
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./js/login-script.js"></script>
-</body>
-
+				$('#sidebarCollapse').on('click', function () {
+					$('#sidebar').addClass('active');
+					$('.overlay').addClass('active');
+					$('.collapse.in').toggleClass('in');
+					$('a[aria-expanded=true]').attr('aria-expanded', 'false');
+				});
+			});
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="./js/login-script.js"></script>
+	</body>
 </html>

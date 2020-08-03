@@ -1,6 +1,5 @@
-$('#add-employee-btn').on('click', function (event) {
+$('#login-btn').on('click', function (event) {
 	event.preventDefault();
-
 	var email = $('#email').val();
 	var pass = $('#pass').val();
 	var url = 'http://gymworkout.pe.hu/api/api1.php?user=' + email + '&pass=' + pass;
