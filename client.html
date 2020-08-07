@@ -38,7 +38,7 @@
 
 
             <ul class="list-unstyled components mt-4">
-                <li>
+                <li id="menu-add-employee">
                     <a href="employee.html">
                         <h3>
                             <i class="fas fa-users"></i> ADD
@@ -73,7 +73,7 @@
                         </h3>
                     </a>
                 </li>
-                <li>
+                <li >
                     <hr>
                     <a href="reset.html">
                         <h3>
@@ -81,6 +81,18 @@
                             <br>
                             <span class="lower">
                                 PASSWORD
+                            </span>
+                        </h3>
+                    </a>
+                </li>
+                <li  id="menu-adjust-time">
+                    <hr>
+                    <a href="time.html">
+                        <h3>
+                            <i class="fas fa-clock"></i> ADJUST
+                            <br>
+                            <span class="lower">
+                                TIME
                             </span>
                         </h3>
                     </a>
@@ -102,7 +114,7 @@
 
             </div>
 
-            <div class="card mx-auto" style="width: 38rem; height: 43rem;">
+            <div class="card mx-auto" style="width: 38rem; height: 65rem;">
                 <div class="card-body">
 
                     <div class="container">
@@ -136,7 +148,28 @@
                                     <option value="U3">Daily Training</option>
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="phone">Start Date</label>
+                                <input type="date" class="form-control" id="start-date" placeholder="Date" style="background-color: rgb(223, 223, 223);">
+                            </div>
 
+
+                            <div class="form-group">
+                                <label for="phone">End Date</label>
+                                <input type="date" class="form-control" id="end-date" placeholder="Date" style="background-color: rgb(223, 223, 223);">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="phone">Training Start Date</label>
+                                <input type="date" class="form-control" id="t-start-date" placeholder="Date" style="background-color: rgb(223, 223, 223);">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="phone">Training End Date</label>
+                                <input type="date" class="form-control" id="t-end-date" placeholder="Date" style="background-color: rgb(223, 223, 223);">
+                            </div>
                             <div class="text-center mt-4">
                                 <button  class="btn btn1 btn-primary mt-4 mb-4" id="add-client-btn"><b>SUBMIT</b></button><br>
                                 <a href="#" id="populate-btn"><u>Populate</u></a><br>
