@@ -74,6 +74,11 @@ $('#submit-btn').click(function () {
 		time_arr[i] = '&s' + i + '=' + time_arr[i];
 		sub_url = sub_url + time_arr[i];
 	}
+	for (let i = time_arr.length; i <= 30; i++) {
+		time_arr[i] = '&s' + i + '=' + 0;
+		sub_url = sub_url + time_arr[i];
+	}
+	console.log(sub_url);
 	//Change url here
 	$.ajax({
 		url:

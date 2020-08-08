@@ -5,16 +5,16 @@ $('#populate-btn').on('click', function (event) {
 	var startdate = $('#startdate').val();
 	var enddate = $('#enddate').val();
 
-	function formatDate(input) {
-		var datePart = input.match(/\d+/g),
-			year = datePart[0];
-		(month = datePart[1]), (day = datePart[2]);
+	// function formatDate(input) {
+	// 	var datePart = input.match(/\d+/g),
+	// 		year = datePart[0];
+	// 	(month = datePart[1]), (day = datePart[2]);
 
-		return day + '.' + month + '.' + year;
-	}
+	// 	return day + '.' + month + '.' + year;
+	// }
 	if (username && startdate && enddate) {
-		var fstart = formatDate(startdate);
-		var fend = formatDate(enddate);
+		var fstart = startdate;
+		var fend = enddate;
 		console.log(fstart, fend);
 		var url = 'https://portal.mbvgroup.in/websiteapi/api12.php?user=' + username + '&std=' + fstart + '0&etd=' + fend;
 		$.ajax({

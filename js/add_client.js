@@ -9,6 +9,7 @@ if (localStorage.getItem('role')) {
 } else {
 	location.replace('https://portal.mbvgroup.in/login.html');
 }
+var loginemail = localStorage.getItem('user');
 
 $('#add-client-btn').on('click', function (event) {
 	event.preventDefault();
@@ -21,10 +22,16 @@ $('#add-client-btn').on('click', function (event) {
 	var enddate = $('#end-date').val();
 	var tstartdate = $('#t-start-date').val();
 	var tenddate = $('#t-end-date').val();
-	// var now = new Date();
-	// const tenddate_formatted = new Date(tendate);
-	// var check = now > tenddate_formatted;
-	// console.log(check);
+	var now = new Date();
+	var f_tenddate = tenddate.split('-').reverse().join('-');
+	const tenddate_formatted = new Date(f_tenddate);
+	var check = now > tenddate_formatted;
+	if (check) {
+		var stat = 1;
+	} else {
+		var stat = 0;
+	}
+	console.log(check);
 	console.log(username, email, phone, membership, startdate, enddate, tstartdate, tenddate);
 	var url = 'https://portal.mbvgroup.in/websiteapi/api8.php?user=' + username;
 	if (username && email && phone && membership && startdate && enddate && tstartdate && tenddate) {
@@ -45,7 +52,7 @@ $('#add-client-btn').on('click', function (event) {
 				console.log(response.status);
 				var r = JSON.parse(response);
 				console.log(r.status);
-				if ((r.status = 0)) {
+				if (r.status == 0) {
 					$.ajax({
 						url:
 							'https://portal.mbvgroup.in/websiteapi/api9.php?user=' +
@@ -63,7 +70,11 @@ $('#add-client-btn').on('click', function (event) {
 							'&tstartdate=' +
 							tstartdate +
 							'&tenddate=' +
-							tenddate,
+							tenddate +
+							'&tcheck=' +
+							stat +
+							'&euser=' +
+							loginemail,
 						type: 'GET',
 						crossDomain: true,
 						headers: {
@@ -79,7 +90,7 @@ $('#add-client-btn').on('click', function (event) {
 							console.log(response.status);
 							var r = JSON.parse(response);
 							console.log(r.status);
-							if ((r.status = 1)) {
+							if (r.status == 1) {
 								alert('Success!');
 							} else {
 								alert('Failed!');
@@ -107,7 +118,9 @@ $('#add-client-btn').on('click', function (event) {
 							'&tstartdate=' +
 							tstartdate +
 							'&tenddate=' +
-							tenddate,
+							tenddate +
+							'&tcheck=' +
+							stat,
 						type: 'GET',
 						crossDomain: true,
 						headers: {
@@ -123,7 +136,7 @@ $('#add-client-btn').on('click', function (event) {
 							console.log(response.status);
 							var r = JSON.parse(response);
 							console.log(r.status);
-							if ((r.status = 1)) {
+							if (r.status == 1) {
 								alert('Success!');
 							} else {
 								alert('Failed!');
@@ -179,22 +192,23 @@ $('#populate-btn').on('click', function (event) {
 					alert('User does not exists!');
 				} else {
 					$('#email').val(r.email);
-					if (r.type == 'U1') {
-						$('#membership').val('General Membership');
-					} else if (r.type == 'U2') {
-						$('#membership').val('Trainer - 36 session');
-					} else if (r.type == 'U3') {
-						$('#membership').val('Daily Training');
-					}
+					// if (r.type == 'U1') {
+					// 	$('#membership').val('General Membership');
+					// } else if (r.type == 'U2') {
+					// 	$('#membership').val('Trainer - 36 session');
+					// } else if (r.type == 'U3') {
+					// 	$('#membership').val('Daily Training');
+					// }
+					$('#membership').val(r.type);
 					$('#phone').val(r.phone);
-					var start = new Date(r.startd);
-					var end = new Date(r.endd);
-					var tstart = new Date(r.tstart);
-					var tend = new Date(r.tend);
-					var newstart = start.split('/').reverse().join('-');
-					var newend = end.split('/').reverse().join('-');
-					var newtstart = tstart.split('/').reverse().join('-');
-					var newtend = tend.split('/').reverse().join('-');
+					var start = r.startd;
+					var end = r.endd;
+					var tstart = r.tstart;
+					var tend = r.tend;
+					var newstart = start.split('-').reverse().join('-');
+					var newend = end.split('-').reverse().join('-');
+					var newtstart = tstart.split('-').reverse().join('-');
+					var newtend = tend.split('-').reverse().join('-');
 					// Need to format
 					$('#start-date').val(newstart);
 					$('#end-date').val(newend);

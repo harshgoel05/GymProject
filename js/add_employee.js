@@ -27,7 +27,7 @@ $('#add-employee-btn').on('click', function (event) {
 				console.log(response.status);
 				var r = JSON.parse(response);
 				console.log(r.status);
-				if ((r.status = 0)) {
+				if ((r.status == 0)) {
 					$.ajax({
 						url: 'https://portal.mbvgroup.in/websiteapi/api4.php?user=' + username + '&pass=' + pass + '&rl=' + role + '&gym=' + gym,
 						type: 'GET',
