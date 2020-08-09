@@ -16,7 +16,7 @@ $('#populate-btn').on('click', function (event) {
 		var fstart = startdate;
 		var fend = enddate;
 		console.log(fstart, fend);
-		var url = 'https://portal.mbvgroup.in/websiteapi/api12.php?user=' + username + '&std=' + fstart + '0&etd=' + fend;
+		var url = 'https://portal.mbvgroup.in/websiteapi/api12.php?user=' + username + '&std=' + fstart + '&etd=' + fend;
 		$.ajax({
 			url: url,
 			type: 'GET',
@@ -63,3 +63,10 @@ if (localStorage.getItem('role')) {
 } else {
 	location.replace('https://portal.mbvgroup.in/login.html');
 }
+
+$('#logout-btn').click(function () {
+	localStorage.removeItem('status');
+	localStorage.removeItem('role');
+	localStorage.removeItem('user');
+	location.replace('https://portal.mbvgroup.in/login.html');
+});

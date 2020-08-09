@@ -37,3 +37,10 @@ $('#login-btn').on('click', function (event) {
 });
 // FrontDesk => Add client, Trainer ( employee, time)
 // Admin => All menus
+
+$('#logout-btn').click(function () {
+	localStorage.removeItem('status');
+	localStorage.removeItem('role');
+	localStorage.removeItem('user');
+	location.replace('https://portal.mbvgroup.in/login.html');
+});

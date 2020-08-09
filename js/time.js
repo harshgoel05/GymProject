@@ -1,3 +1,4 @@
+var loginemail = localStorage.getItem('user');
 $(document).ready(function () {
 	$('#sidebar').mCustomScrollbar({
 		theme: 'minimal',
@@ -95,8 +96,10 @@ $('#submit-btn').click(function () {
 			aft +
 			'&eve=' +
 			eve +
+			'&euser=' +
+			loginemail +
 			sub_url,
-		type: 'POST',
+		type: 'GET',
 		crossDomain: true,
 		headers: {
 			accept: 'text/html; charset=UTF-8',
@@ -122,4 +125,11 @@ $('#submit-btn').click(function () {
 			alert('Some unknown error occured');
 		},
 	});
+});
+
+$('#logout-btn').click(function () {
+	localStorage.removeItem('status');
+	localStorage.removeItem('role');
+	localStorage.removeItem('user');
+	location.replace('https://portal.mbvgroup.in/login.html');
 });

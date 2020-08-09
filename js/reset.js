@@ -47,3 +47,9 @@ if (localStorage.getItem('role')) {
 } else {
     location.replace('https://portal.mbvgroup.in/login.html');
 }
+$('#logout-btn').click(function () {
+	localStorage.removeItem('status');
+	localStorage.removeItem('role');
+	localStorage.removeItem('user');
+	location.replace('https://portal.mbvgroup.in/login.html');
+});

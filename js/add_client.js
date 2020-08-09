@@ -14,23 +14,33 @@ var loginemail = localStorage.getItem('user');
 $('#add-client-btn').on('click', function (event) {
 	event.preventDefault();
 
-	var username = $('#username').val();
-	var email = $('#email').val();
-	var phone = $('#phone').val();
-	var membership = $('#membership').val();
-	var startdate = $('#start-date').val();
-	var enddate = $('#end-date').val();
-	var tstartdate = $('#t-start-date').val();
-	var tenddate = $('#t-end-date').val();
-	var now = new Date();
-	var f_tenddate = tenddate.split('-').reverse().join('-');
-	const tenddate_formatted = new Date(f_tenddate);
-	var check = now > tenddate_formatted;
+	var ausername = $('#username').val();
+	var aemail = $('#email').val();
+	var aphone = $('#phone').val();
+	var amembership = $('#membership').val();
+	var astartdate = $('#start-date').val();
+	var aenddate = $('#end-date').val();
+	var atstartdate = $('#t-start-date').val();
+	var atenddate = $('#t-end-date').val();
+
+	var username = ausername.split('-').reverse().join('-');
+	var email = aemail.split('-').reverse().join('-');
+	var phone = aphone.split('-').reverse().join('-');
+	var membership = amembership.split('-').reverse().join('-');
+	var startdate = astartdate.split('-').reverse().join('-');
+	var enddate = aenddate.split('-').reverse().join('-');
+	var tstartdate = atstartdate.split('-').reverse().join('-');
+	var tenddate = atenddate.split('-').reverse().join('-');
+	// var f_tenddate = tenddate.split('-').reverse().join('-');
+	// const tenddate_formatted = new Date(f_tenddate);
+	const now = new Date();
+	var check = now > new Date(tenddate);
 	if (check) {
-		var stat = 1;
-	} else {
 		var stat = 0;
+	} else {
+		var stat = 1;
 	}
+
 	console.log(check);
 	console.log(username, email, phone, membership, startdate, enddate, tstartdate, tenddate);
 	var url = 'https://portal.mbvgroup.in/websiteapi/api8.php?user=' + username;
@@ -266,4 +276,11 @@ $('#reset-btn').on('click', function (event) {
 	} else {
 		alert('Please enter username to populate');
 	}
+});
+
+$('#logout-btn').click(function () {
+	localStorage.removeItem('status');
+	localStorage.removeItem('role');
+	localStorage.removeItem('user');
+	location.replace('https://portal.mbvgroup.in/login.html');
 });

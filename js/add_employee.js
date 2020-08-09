@@ -1,5 +1,5 @@
 $('#loggedinas').html(localStorage.getItem('role'));
-
+var loginemail = localStorage.getItem('user');
 $('#add-employee-btn').on('click', function (event) {
 	event.preventDefault();
 
@@ -27,9 +27,19 @@ $('#add-employee-btn').on('click', function (event) {
 				console.log(response.status);
 				var r = JSON.parse(response);
 				console.log(r.status);
-				if ((r.status == 0)) {
+				if (r.status == 0) {
 					$.ajax({
-						url: 'https://portal.mbvgroup.in/websiteapi/api4.php?user=' + username + '&pass=' + pass + '&rl=' + role + '&gym=' + gym,
+						url:
+							'https://portal.mbvgroup.in/websiteapi/api4.php?user=' +
+							username +
+							'&pass=' +
+							pass +
+							'&rl=' +
+							role +
+							'&gym=' +
+							gym +
+							'&euser=' +
+							loginemail,
 						type: 'GET',
 						crossDomain: true,
 						headers: {
@@ -155,3 +165,10 @@ if (localStorage.getItem('role')) {
 } else {
 	location.replace('https://portal.mbvgroup.in/login.html');
 }
+
+$('#logout-btn').click(function () {
+	localStorage.removeItem('status');
+	localStorage.removeItem('role');
+	localStorage.removeItem('user');
+	location.replace('https://portal.mbvgroup.in/login.html');
+});
